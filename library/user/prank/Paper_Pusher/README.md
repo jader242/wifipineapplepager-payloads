@@ -20,4 +20,4 @@ If you have multiple printers on the LAN it might break the script. I don't have
 
 This payload is ported from the original [Paper-Pusher.sh](https://github.com/OSINTI4L/Paper-Pusher).
 
-Shout out to SpuriousIndices aka the Printer God, for teaching me how to mess with printers.
+*Shout out to SpuriousIndices aka the Printer God for teaching me how to mess with printers.*

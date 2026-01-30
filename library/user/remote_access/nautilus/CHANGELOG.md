@@ -2,6 +2,12 @@
 
 All notable changes to Nautilus will be documented in this file.
 
+## [1.8.1] - 2026-01-30
+
+### Fixed
+
+- **Disabled Alerts/Payloads**: Items with `DISABLED.` prefix now appear in Local tab with visual indication (grayed out with "DISABLED" badge)
+
 ## [1.8.0] - 2026-01-30
 
 ### Added

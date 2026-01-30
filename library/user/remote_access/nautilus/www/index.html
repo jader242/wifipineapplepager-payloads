@@ -372,6 +372,26 @@
       transform: scaleY(1)
     }
 
+    .payload.disabled {
+      opacity: 0.5
+    }
+
+    .payload.disabled::before {
+      background: var(--text2)
+    }
+
+    .disabled-badge {
+      display: inline-block;
+      font-size: 0.65em;
+      padding: 1px 5px;
+      margin-left: 8px;
+      background: var(--text2);
+      color: var(--bg);
+      border-radius: 3px;
+      font-weight: 600;
+      vertical-align: middle
+    }
+
     .payload .name {
       color: var(--text);
       font-weight: 500;
@@ -4158,7 +4178,9 @@
         sorted.forEach((p, i) => {
           const name = escHtml(p.name || '');
           const desc = escHtml(p.desc || '');
-          html += `<div class="payload" data-path="${p.path}" onclick="selectByPath('${p.path}')"><div class="name">${name}</div><div class="desc">${desc}</div></div>`;
+          const disabledClass = p.disabled ? ' disabled' : '';
+          const disabledBadge = p.disabled ? '<span class="disabled-badge">DISABLED</span>' : '';
+          html += `<div class="payload${disabledClass}" data-path="${p.path}" onclick="selectByPath('${p.path}')"><div class="name">${name}${disabledBadge}</div><div class="desc">${desc}</div></div>`;
         });
         html += `</div></div>`;
       });

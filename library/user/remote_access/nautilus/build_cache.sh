@@ -13,8 +13,7 @@ scan_payloads() {
     
     [ ! -d "$root" ] && { echo "{}"; return; }
     
-    find "$root" -path "*/DISABLED.*" -prune -o \
-         -path "*/.git" -prune -o \
+    find "$root" -path "*/.git" -prune -o \
          -path "*/nautilus/*" -prune -o \
          -name "payload.sh" -print 2>/dev/null | \
     awk '
@@ -26,7 +25,19 @@ scan_payloads() {
         category = parts[n-2]
         pname = parts[n-1]
 
-        if (pname ~ /^DISABLED\./ || pname == "PLACEHOLDER" || pname == "nautilus") next
+        if (pname == "PLACEHOLDER" || pname == "nautilus") next
+
+        # Check if disabled (category or pname starts with DISABLED.)
+        disabled = "false"
+        displayName = pname
+        if (category ~ /^DISABLED\./) {
+            disabled = "true"
+            sub(/^DISABLED\./, "", category)
+        }
+        if (pname ~ /^DISABLED\./) {
+            disabled = "true"
+            sub(/^DISABLED\./, "", displayName)
+        }
 
         title = ""; desc = ""; author = ""
         linenum = 0
@@ -46,13 +57,13 @@ scan_payloads() {
         }
         close(file)
 
-        if (title == "") title = pname
+        if (title == "") title = displayName
 
         gsub(/[\t\r\n]/, " ", title); gsub(/\\/, "\\\\", title); gsub(/"/, "\\\"", title)
         gsub(/[\t\r\n]/, " ", desc); gsub(/\\/, "\\\\", desc); gsub(/"/, "\\\"", desc)
         gsub(/[\t\r\n]/, " ", author); gsub(/\\/, "\\\\", author); gsub(/"/, "\\\"", author)
 
-        entry = "{\"name\":\"" title "\",\"desc\":\"" desc "\",\"author\":\"" author "\",\"path\":\"" file "\"}"
+        entry = "{\"name\":\"" title "\",\"desc\":\"" desc "\",\"author\":\"" author "\",\"path\":\"" file "\",\"disabled\":" disabled "}"
         if (category in cats) {
             cats[category] = cats[category] "," entry
         } else {

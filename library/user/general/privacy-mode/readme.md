@@ -7,7 +7,9 @@ This repository contains a WiFi Pineapple payload.
 
 A short video overview and review of this payload is available on YouTube:
 
-https://youtube.com/shorts/3a9UpTbq8WA?feature=share
+[Watch the payload review on YouTube Shorts]([https://youtube.com/shorts/3a9UpTbq8WA?feature=share])
+
+
 
 
 

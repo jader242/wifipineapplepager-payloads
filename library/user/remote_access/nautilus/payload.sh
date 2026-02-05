@@ -221,7 +221,7 @@ chmod +x "$SCRIPT_DIR/build_cache.sh" 2>/dev/null
 "$SCRIPT_DIR/build_cache.sh" >/dev/null 2>&1
 [ -f "$PID_FILE" ] && kill $(cat "$PID_FILE") 2>/dev/null
 rm -f "$PID_FILE"
-uhttpd -f -p "$PORT" -h "$WEB_DIR" -c /cgi-bin -T 60 &
+uhttpd -f -p "$PORT" -h "$WEB_DIR" -c /cgi-bin -t 300 -T 300 &
 echo $! > "$PID_FILE"
 echo $! > "$PID_FILE"
 sleep 1

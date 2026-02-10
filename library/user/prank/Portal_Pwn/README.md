@@ -6,7 +6,7 @@
 
 </div>
 
-Portal Pwn is a Hak5 Wifi Pineapple Pager payload designed to distrupt malicious actors utilizing ESP32 Marauder Evil Portals (EP) for credenetial phishing campaigns.
+Portal Pwn is a Hak5 Wifi Pineapple Pager payload designed to distrupt malicious actors utilizing ESP32 Marauder Evil Portals (EP) for credential phishing campaigns.
 It works by throwing random data via `cURL` requests at the Evil Portal, overwhelming it, and crashing it. If you choose not to crash the portal, but have a laugh, a secondary attack can be utilized to spam requests at the portal filling the screen with whatever text you choose to input.
 The payload prompts the user for the EP SSID, will then connect, and finally prompt the user for the desired attack preference `Spam (1) Crash (2)`.
 
@@ -16,6 +16,7 @@ This payload has succesfully been tested on (and crashed):
 ```
 JustCallMeKoko ESP32 Marauder v6.1 - Firmware v1.10.12
 JustCallMeKoko ESP32 Marauder Mini - Firmware v1.10.12
-Cheap Yellow Display - Marauder Firmware
 Flipper Zero - Momentum Firmware - Evil Portal app
+Cheap Yellow Display
+Evil Cardputer instances
 ```

@@ -2,8 +2,10 @@
 # Title:       Jelly Sentinel
 # Author:      hackagocthi
 # Category:    Recon
-# Description: Authorized network security assessment for home and SMB environments. Discovers devices, audits WiFi, checks vulnerabilities, inspects SSL,scans Bluetooth, captures traffic, and generates a scored loot report.
-#Version: 1.0
+# Description: Authorized network security assessment for home and SMB environments.
+#              Discovers devices, audits WiFi, checks vulnerabilities, inspects SSL,
+#              scans Bluetooth, captures traffic, and generates a scored loot report.
+# version: 1.0
 
 # CONFIGURATION
 LOOT_BASE="/root/loot/jelly_sentinel"
